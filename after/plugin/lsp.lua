@@ -6,6 +6,19 @@ lsp.ensure_installed({
 	'rust_analyzer',
 })
 
+require('lspconfig').rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            checkOnSave = {
+                allFeatures = true,
+                overrideCommand = {
+                    'cargo', 'clippy', '--workspace', '--message-format=json',
+                    '--all-targets', '--all-features'
+                }
+            }
+        }
+    }
+}
 
 local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -30,18 +43,8 @@ lsp.on_attach(function(client, bufnr)
   -- more keybindings...
 end)
 
-local config = {
-    -- enable/disable virtual text
-    virtual_text = true,
-    virtual_lines = true,
-    signs = true,
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = true,
-}
 
-vim.diagnostic.config(config)
+--vim.diagnostic.config({ virtual_text = true })
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
@@ -49,3 +52,15 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.setup()
+
+
+local config = {
+    --virtual_text = true,
+    virtual_lines = true,
+    signs = true,
+    update_in_insert = false,
+    --underline = true,
+    severity_sort = true,
+    float = true,
+}
+vim.diagnostic.config(config)
