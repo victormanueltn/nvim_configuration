@@ -1,3 +1,4 @@
+-- See `:help nvim-treesitter`
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
   ensure_installed = { "rust", "c", "lua", "vim", "help" },
@@ -18,5 +19,16 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
+  },
+
+  indent = true,
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<c-space>',
+      node_incremental = '<c-space>',
+      --scope_incremental = '<c-s>',
+      --node_decremental = '<c-backspace>',
+    },
   },
 }
