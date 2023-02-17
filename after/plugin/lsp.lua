@@ -19,10 +19,9 @@ require('lspconfig').rust_analyzer.setup {
         }
     }
 }
-
 vim.api.nvim_create_augroup('AutoFormatting', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = '*.lua',
+    pattern = '*.rs',
     group = 'AutoFormatting',
     callback = function()
         vim.lsp.buf.format({ async = true })

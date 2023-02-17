@@ -11,5 +11,3 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
-
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {})
