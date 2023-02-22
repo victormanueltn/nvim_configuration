@@ -24,4 +24,3 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = u8
 vim.opt.colorcolumn = "100"
 
-vim.g.mapleader = " "
